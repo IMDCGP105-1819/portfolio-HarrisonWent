@@ -19,14 +19,14 @@ song = "I live in Tigerland I'm an indiana man " + \
 
 song = song.lower()
 
-def match_Word(word):
+def match_word(word):
     if word in word_Frequency:
         word_Frequency[word] += 1
     else:
         word_Frequency[word] = 1
 
 
-def analyse_Song():
+def analyse_song():
 
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     stripped_song = ""
@@ -36,7 +36,7 @@ def analyse_Song():
 
     words = stripped_song.split(" ")
     for word in words:
-        match_Word(word)
+        match_word(word)
 
 
 def common_word(minimum_Value):
@@ -46,13 +46,13 @@ def common_word(minimum_Value):
             most_Common_Words.append({word: value})
 
 
-analyse_Song()
+analyse_song()
 
 print("The most common word(s) is/are")
 for word, value in word_Frequency.items():
     print("Word: ", "\"", word, "\"", "Frequency: ", value)
 
 common_word(int(input("Please enter the least amount of times for a word: ")))
-print
+
 for word in most_Common_Words:
     print("Word: ", "\"", word)
