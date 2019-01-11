@@ -1,6 +1,6 @@
 class Fraction(object):
 
-    def __int__(self, a,b):
+    def __int__(self, a, b):
         try:
             int(a)
             self.a = a

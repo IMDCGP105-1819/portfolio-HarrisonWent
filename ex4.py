@@ -7,7 +7,7 @@ my_hair = 'Ginger'
 is_heavy = my_weight > 3000
 
 print(f"Let's talk about {my_name}.")
-# swap in your preferred pronoun.
+
 print(f"He is {my_height} inches tall.")
 print(f"He's {my_weight} pounds heavy.")
 print(f"It is {is_heavy} that he is overweight.")

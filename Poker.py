@@ -1,29 +1,37 @@
+import random
 class Deck:
 
+    def __init__(self):
+        self.cardDeck = self.generate_pack()
+
+    #create a new pack of cards
     def generate_pack(self):
+        cards = []
+        suits = ["Heart", "Club", "Spade", "Diamond"]
+        card_types = ["Ace","1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
 
-        cards = [{'Value' : "", 'Suit' : "", 'Position' : ""}]
+        for suit in suits:
+            for card in card_types:
+                cards.append({'Suit': suit, 'Value': card})
+        self.cardDeck = cards
+        return cards
 
-        for a in range(1,14):
-            if a == 1:
+    def shuffle_deck(self):
+        random.shuffle(self.cardDeck)
 
-            elif a == 11:
+    #check if there are enough cards to draw a hand
+    def check_remaining(self):
+        if len(self.cardDeck) > 5:
+            return True
+        else:
+            return False
 
-            elif a == 12:
-
-            elif a == 13:
-
-            else:
-                dict = {'value' : a, 'suit' : "Hearts", 'Position' : ""}
-                cards.append(dict)
-
-                dict = {'value': a, 'suit': "Clubs", 'Position': ""}
-                cards.append(dict)
-
-                dict = {'value': a, 'suit': "Spades", 'Position': ""}
-                cards.append(dict)
-
-                dict = {'value': a, 'suit': "Diamonds", 'Position': ""}
-                cards.append(dict)
-
-
+    def deal_hand(self):
+        hand = []
+        count = 0
+        while count < 5:
+            #take card from top and remove it
+            hand.append(self.cardDeck[-1])
+            self.cardDeck.remove(self.cardDeck[-1])
+            count+=1
+        return hand
